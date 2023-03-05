@@ -1,0 +1,20 @@
+{
+  "tabWidth": 2,
+  "singleQuote": true,
+  "bracketSpacing": false,
+  "eslintIntegration": false,
+  "stylelintIntegration": false,
+  "bracketSameLine": true,
+  "prettier/prettier": [
+    "error",
+    {
+      "singleQuote": true,
+      "bracketSpacing": false,
+      "eslintIntegration": false,
+      "stylelintIntegration": false,
+      "parser": "flow",
+      "endOfLine": "auto",
+      "usePrettierrc": false
+    }
+  ]
+}
