@@ -1,32 +1,12 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
-import Login from './src/screens/Login';
-import COLORS from './src/Utils/COLORS';
+import {View} from 'react-native';
 
-function App(): JSX.Element {
+import Routes from './app/navigation/Routes';
+
+export default function App() {
   return (
-    <SafeAreaView style={Styles.container}>
-      <ScrollView>
-        <Login />
-      </ScrollView>
-    </SafeAreaView>
+    <View style={{flex: 1}}>
+      <Routes />
+    </View>
   );
 }
-
-const Styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLORS.WHITE,
-  },
-  mainContent: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
-  },
-  textDark: {
-    color: COLORS.DARK,
-  },
-});
-
-export default App;
