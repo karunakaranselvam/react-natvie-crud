@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   Alert,
   Dimensions,
@@ -17,6 +17,7 @@ const LoginScreen = ({navigation}: any) => {
   const [params, setParams] = useState({username: '', password: ''});
   const [errors, setErrors] = useState({username: null, password: null});
   const {height, width} = Dimensions.get('window');
+  const passwordRef = useRef<any>();
 
   const handleChange = (text: string, input: string) => {
     setParams(prev => ({...prev, [input]: text}));
@@ -35,7 +36,10 @@ const LoginScreen = ({navigation}: any) => {
       ToastAndroid.show('Login successfully!', ToastAndroid.SHORT);
       navigation.navigate('Home');
     } else {
-      Alert.alert('Invalid username or password');
+      Alert.alert(
+        'Invalid username or password',
+        'Please enter a valid username or password'
+      );
       setParams(prev => ({...prev, password: ''}));
     }
   };
@@ -83,7 +87,10 @@ const LoginScreen = ({navigation}: any) => {
             label="Username"
             placeholder="Enter your username"
             iconName="user-o"
+            keyboardType="email-address"
+            enterKeyHint="next"
             autoFocus={true}
+            onSubmitEditing={() => passwordRef?.current?.focus()}
             onChangeText={(text: string) => handleChange(text, 'username')}
             onFocus={() => handleError(null, 'username')}
             error={errors.username}
@@ -94,6 +101,7 @@ const LoginScreen = ({navigation}: any) => {
             label="Password"
             placeholder="Enter your password"
             iconName="lock"
+            refernce={passwordRef}
             onChangeText={(text: string) => handleChange(text, 'password')}
             onFocus={() => handleError(null, 'password')}
             error={errors.password}
@@ -135,7 +143,7 @@ const LoginScreen = ({navigation}: any) => {
         </View>
         <View style={{paddingTop: 10}}>
           <Text
-            onPress={() => navigation.navigate('ForgotPassword')}
+            onPress={() => navigation.navigate('Forgot Password')}
             style={{color: COLORS.BLACK, textDecorationLine: 'underline'}}>
             forgot password
           </Text>

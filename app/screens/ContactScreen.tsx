@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import {Dimensions, SafeAreaView, ScrollView, Text, View} from 'react-native';
 import COLORS from '../utils/COLORS';
 
-const HomeScreen = ({navigation}: any) => {
+const Contact = ({navigation}: any) => {
   const {height, width} = Dimensions.get('window');
 
   return (
@@ -24,7 +23,7 @@ const HomeScreen = ({navigation}: any) => {
             }}>
             <Text
               style={{color: COLORS.BLACK, fontSize: 30, fontWeight: 'bold'}}>
-              Home
+              Contact
             </Text>
             <Text
               style={{color: COLORS.DANGER, paddingTop: 15}}
@@ -38,4 +37,4 @@ const HomeScreen = ({navigation}: any) => {
   );
 };
 
-export default HomeScreen;
+export default Contact;

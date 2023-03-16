@@ -204,7 +204,7 @@ const RegisterScreen = ({navigation}: any) => {
             </TouchableOpacity>
           </View>
           <View style={{paddingTop: 10}}>
-            <Text>
+            <Text style={{color: COLORS.SECONDARY}}>
               Already have an account?{' '}
               <Text
                 style={{color: COLORS.BLACK, textDecorationLine: 'underline'}}
